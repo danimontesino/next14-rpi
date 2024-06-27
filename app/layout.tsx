@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type {Metadata} from "next";
 import "./globals.css";
+import React from "react";
+import {lora, raleway} from "@ui/fonts";
+import {Providers} from "./providers";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html
+      lang="es"
+      className={`${raleway.variable} ${lora.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="font-raleway text-base relative text-balance">
+      <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
